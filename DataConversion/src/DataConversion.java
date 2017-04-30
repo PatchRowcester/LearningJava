@@ -8,6 +8,7 @@ public class DataConversion
 //		Value will be an int
 		System.out.println("Int - " + (3+5 + 8)/3); 
 //		Value will be a double
+		System.out.println("Example of implicit data conversion. Using 3.0 will output a double:");
 		System.out.println("Double - " + (3+5 + 8)/3.0);
 //		3 is a double
 		double volume = 4/3 * Math.PI * 10*10*10;

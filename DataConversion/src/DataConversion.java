@@ -6,7 +6,7 @@ public class DataConversion
 	{
 		
 //		Value will be an int
-		System.out.println("Int - " + (3+5 + 8)/3); 
+		System.out.println("This will only output the integer portion of the result - " + (3+5 + 8)/3); 
 //		Value will be a double
 		System.out.println("Example of implicit data conversion. Using 3.0 will output a double:");
 		System.out.println("Double - " + (3+5 + 8)/3.0);

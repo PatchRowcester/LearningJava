@@ -26,12 +26,17 @@ public class CallByValueAndReference
 		System.out.println("Number of weeks: " + numberOfWeeks);
 		
 		double[] dailyMealCost = new double[7];
+		double oneMealCost = 5;
 		
 //		No values have been assigned to the elements
 		System.out.println("Array contents before calling the method: " + Arrays.toString(dailyMealCost));
 		
 //		Calling the method that uses call by Reference. This updates the contents of the array
 		getDailyMealcost(dailyMealCost);
+		
+//		Calling the method that uses call by value. 
+		getOneMealcost(oneMealCost);
+		System.out.println(oneMealCost);
 		
 //		Printing the values of the array after the method is called. 
 		System.out.println("Array contents before calling the method: " + Arrays.toString(dailyMealCost));
@@ -58,6 +63,12 @@ public class CallByValueAndReference
 			System.out.println("Enter estimated cost for day " + (i + 1) + ": ");
 			dailyCost[i] = input.nextDouble();
 		}
+	}
+	
+	public static void getOneMealcost(double oneMealCost)
+	{
+		oneMealCost +=10;
+		System.out.printf("One meal cost: ");
 	}
 	
 	public static double mealPlanCost(int numWeeks, double[] dailyCost)

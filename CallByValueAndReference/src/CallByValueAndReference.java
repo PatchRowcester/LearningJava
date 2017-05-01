@@ -1,79 +1,82 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
+import javax.naming.Reference;
+
 /**
  * Call by reference: Allows the method and the calling program to point to the same address
  * in the memory that contains the value of the variable. Changes made in the method will reflect
- * back in the calling program. 
+ * back in the calling program.
  * 
- * Call by value: Makes a copy of the variable contents, so any changes made in the method are 
+ * Call by value: Makes a copy of the variable contents, so any changes made in the method are
  * not reflected back in the calling program.
+ * 
+ * Primitive data types are called by value, therefore a copy is made.
+ * Non primitive data types (array) are called by reference.
  * 
  * @author Ravi
  *
  */
 public class CallByValueAndReference
 {
-
-	public static void main(String[] args) {
-        //call getTotalMealWeeks method, which returns the number of weeks
-		int numWeeks = getTotalMealWeeks(); 
-		double[] dailyMealCost = new double[7];        
-        
-		//print array contents before calling the method, should be all zeros
-		System.out.println("Before calling the method: " + Arrays.toString(dailyMealCost)); 
-        
-		//call getDailyMealCost method - uses call by reference
-        getDailyMealCost(dailyMealCost); 
-        
-        //print array contents after calling the method
-        System.out.println("After calling the method: " + Arrays.toString(dailyMealCost)); 
-
-        //use the number of weeks and daily meal cost array to find the total
-        //note, the numweeks is a call by value, but the dailyMealCost is
-        //an array, so it is passing the address of the variable to the method
-        double totalCost = computeMealPlanCost(numWeeks, dailyMealCost);
-
-        //use a method to print the total cost.
-        printTotalMealPlanCost(totalCost);
-    }
+	public static Scanner input = new Scanner(System.in);
+	public static void main(String[] args) 
+	{
+		int numberOfWeeks = getTotalMealWeeks();
+		System.out.println("Number of weeks: " + numberOfWeeks);
+		
+		double[] dailyMealCost = new double[7];
+		
+//		No values have been assigned to the elements
+		System.out.println("Array contents before calling the method: " + Arrays.toString(dailyMealCost));
+		
+//		Calling the method that uses call by Reference. This updates the contents of the array
+		getDailyMealcost(dailyMealCost);
+		
+//		Printing the values of the array after the method is called. 
+		System.out.println("Array contents before calling the method: " + Arrays.toString(dailyMealCost));
+		
+		double totalCost = mealPlanCost(numberOfWeeks, dailyMealCost);
+		printTotalMealPlanCost(totalCost);
+		
+	}
 	
-    public static int getTotalMealWeeks()
-    {
-        Scanner in = new Scanner(System.in);
-        System.out.println("How many weeks are in your semester? ");
-        int totalWeeks = in.nextInt();
-        in.close();
-        return totalWeeks;
-    }
-    
-    public static void getDailyMealCost(double[] dailyCost)
-    {
-        Scanner in = new Scanner(System.in);
-        //note the use of the arrays length, this allows it to vary depending 
-        //on the value passed in the parameter list.  
-        for(int i = 0;i < dailyCost.length; i++)
-        {
-            System.out.println("Enter the estimated cost for day "+ (i+1));
-            dailyCost[i] = in.nextDouble();
-        }
-        in.close();
-    }
-    
-    public static double computeMealPlanCost(int numWeeks, double[] dailyCost)
-    {
-        double totalCost = 0, weeklyCost = 0;
-        for(int i = 0; i < dailyCost.length; i++)
-        {
-            weeklyCost += dailyCost[i];
-        }
-        totalCost = weeklyCost * numWeeks;
-        return totalCost;
-    }
-    
-    public static void printTotalMealPlanCost(double total)
-    {
-        System.out.printf("Your estimated total meal plan cost for the semester is: $%5.2f", total);
-        System.out.println();
-    }
+	public static int getTotalMealWeeks()
+	{
+		int numberOfWeeks;
+		
+		System.out.println("Enter the number of weeks: ");
+		numberOfWeeks = input.nextInt();
+		
+		return numberOfWeeks;
+	}
+	
+	public static void getDailyMealcost(double[] dailyCost)
+	{
+		for (int i = 0; i < dailyCost.length; i++)
+		{
+			System.out.println("Enter estimated cost for day " + (i + 1) + ": ");
+			dailyCost[i] = input.nextDouble();
+		}
+	}
+	
+	public static double mealPlanCost(int numWeeks, double[] dailyCost)
+	{
+		double totalCost = 0, weeklyCost = 0;
+		
+//		Get the sum of all the elements in the array
+		for (int i = 0; i < dailyCost.length; i++)
+		{
+			weeklyCost+= dailyCost[i];
+		}
+		
+		totalCost = weeklyCost * numWeeks;
+		
+		return totalCost;
+	}
+	
+	public static void printTotalMealPlanCost(double totalCost)
+	{
+		System.out.println("The total cost of the meal plan is: " + totalCost);
+	}
 }

@@ -13,6 +13,7 @@ public class PrintPatientDetails
 			System.out.println("Lab services: $" + services[i].getLabServiceCharges());
 			System.out.println("Medical charges: $" + services[i].getMedicationCharges());
 			System.out.println("Total cost: $" + tc.calculateTotalCost(services));
+			
 			System.out.println("******"); 
 		}
 	}

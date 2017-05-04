@@ -72,10 +72,10 @@ public class Movie
 	{
 		for (int i = 0; i < movies.length; i++)
 		{
-			System.out.println("Movie name: " + movies[i]._name + "\n" + 
-					"Year: " + movies[i]._year + "\n" +
-					"Rating: " + movies[i]._rating + "\n" +
-					"Runtime in minutes: " + movies[i]._runtimeInMinutes);
+			System.out.println("Movie name: " + movies[i].getName() + "\n" + 
+					"Year: " + movies[i].getYear() + "\n" +
+					"Rating: " + movies[i].getRating() + "\n" +
+					"Runtime in minutes: " + movies[i].getRuntimeInMinutes());
 		}
 		
 	}

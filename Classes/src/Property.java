@@ -27,6 +27,11 @@ public class Property
 		this._numBeds = numBeds;
 	}
 	
+	public void setAskingPrice(double newPrice)
+	{
+		_askingPrice = newPrice;
+	}
+	
 	public String toString()
 	{
 		return "Asking price: $" + _askingPrice + "\n" + 

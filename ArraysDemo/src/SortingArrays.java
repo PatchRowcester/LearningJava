@@ -4,7 +4,8 @@ public class SortingArrays
 
 	public static void main(String[] args)
 	{
-		int[] arrayToSort = {9,8,7,1,2,3,5};
+		int[] arrayToSort = {67, 78, 4, 15, 47, 30, 99, 33, 65, 65, 85};
+		int[] arrayToSort2 = {67, 78, 4, 15, 47, 30, 99, 33, 65, 65, 85};
 		SelectionSort(arrayToSort);
 		
 		System.out.println("Regular sort");
@@ -21,6 +22,13 @@ public class SortingArrays
 		{
 			System.out.printf("%d ", arrayToSort[i]);
 		}
+		
+		InsertionSort(arrayToSort2);
+		System.out.println("After insertion sort: ");
+		for(int i = 0; i < arrayToSort2.length; i++)
+		{
+			System.out.printf("%d ", arrayToSort2[i]);
+		} 
 	}
 
 	private static void InvertedSelectionSort(int[] arrayToSort)
@@ -62,6 +70,21 @@ public class SortingArrays
 				arrayToSort[first] = arrayToSort[i];
 				arrayToSort[i] = temp;
 			}
+		}
+	}
+	
+	public static void InsertionSort(int[] arrayToSort)
+	{
+		int j, key;
+		
+		for(int i = 1; i < arrayToSort.length; i++)
+		{
+			key = arrayToSort[i];
+			for (j = i -1; (j >= 0) && (arrayToSort[j] < key); j--)
+			{
+				arrayToSort[i + 1] = arrayToSort[i];
+			}
+			arrayToSort[j + 1] = key;
 		}
 	}
 }

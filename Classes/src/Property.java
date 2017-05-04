@@ -38,6 +38,6 @@ public class Property
 				"Property type: " + _propertyType + "\n" + 
 				"Lot size: " + _lotSize + "\n" + 
 				"Number of baths: " + _numBeds + "\n" + 
-				"Number of bedrooms: " + _numBeds;
+				"Number of bedrooms: " + _numBeds + "\n";
 	}
 }

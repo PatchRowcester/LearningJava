@@ -22,6 +22,10 @@ public class SortingArrays
 		} 
 	}
 	
+	/**
+	 * Sorts the array in descending order
+	 * @param num
+	 */
 	public static void SelectionSort (int[] num)
     {
         int i, j, first, temp;
@@ -35,13 +39,18 @@ public class SortingArrays
             }
             temp = num[first];   //swap smallest found with element in position i
             num[first] = num[i];
-            num[i] = temp;
+            num[ i] = temp;
         }
     }
 	
+	/**
+	 * Sorts the array in descending order
+	 * @param num
+	 */
 	public static void InsertionSort(int[] num)
     {
         int j, key, i;
+        
         for(j = 1; j < num.length; j++)     // start with 1 (not 0)
         {
             key = num[j];
@@ -49,7 +58,8 @@ public class SortingArrays
             {
                 num[i+1] = num[i];
             }
-        num[i+1] = key; // Put the key in its proper location
+            
+            num[i+1] = key; // Put the key in its proper location
         }    
     }
 }

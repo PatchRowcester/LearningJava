@@ -1,11 +1,13 @@
 package com.java.fileops;
 
-
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class FileOperations
 {
@@ -41,13 +43,35 @@ public class FileOperations
 			System.out.printf(fileContents.get(i));
 		}
 		
+		writeContentsToFile();
+		
 		br.close();
 	}
 	
-	public static void readContentsToFile()
+	public static void writeContentsToFile() throws FileNotFoundException
 	{
 //		This file should be in the same folder as .classpath file, 
 //		which is the root of the project folder on the file system
-		File file = new File("names.txt");
+		Scanner in = new Scanner(System.in);
+        File fileName = new File("names.txt");
+        String name;
+        System.out.println("Enter the first customer name: ");
+        name = in.nextLine();
+        PrintWriter pw = new PrintWriter(fileName);
+        try
+        {
+		    while (!name.equalsIgnoreCase("done"))
+		    {
+		        pw.println(name);
+		        System.out.println("Enter the next name or \"done\" to exit.");
+		        name = in.nextLine();            
+		    }
+		    
+		    pw.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println("Error encountered " + e.toString());
+        }
 	}
 }

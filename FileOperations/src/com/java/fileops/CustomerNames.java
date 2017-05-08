@@ -1,10 +1,13 @@
 package com.java.fileops;
 import java.util.Scanner;
 import java.io.*;
+
 /**
+ * 
+ * @author Ravi
  *
- * @author Peggy Fisher
- */ 
+ */
+
 public class CustomerNames {
 
     /**

@@ -22,13 +22,13 @@ public class MenuOperations
 		File file = new File("prices.txt");
 		PrintWriter pw = new PrintWriter(file);
 		String line = br.readLine();
-		int price;
+		double price;
 		
 		while(line != null)
 		{
 			System.out.println("Enter the price for " + line);
-			price = input.nextInt();
-			pw.println(line + "\t" + Integer.toString(price));
+			price = input.nextDouble();
+			pw.println(line + "\t" + Double.toString(price));
 			line = br.readLine();
 		}
 		

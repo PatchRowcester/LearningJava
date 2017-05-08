@@ -28,7 +28,7 @@ public class MenuOperations
 		{
 			System.out.println("Enter the price for " + line);
 			price = input.nextDouble();
-			pw.println(line + "\t" + Double.toString(price));
+			pw.println(line + "\t" + "$" + Double.toString(price));
 			line = br.readLine();
 		}
 		

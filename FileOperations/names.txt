@@ -1,3 +1,7 @@
+<<<<<<< Upstream, based on branch 'master' of https://github.com/PatchRowcester/LearningJava.git
 freasfaerft
 asdfffffffffffffff
 aaaaaaaaaaaaaaaaaaaaaaaa
+=======
+asdfasdf
+>>>>>>> 4869991 File Operations

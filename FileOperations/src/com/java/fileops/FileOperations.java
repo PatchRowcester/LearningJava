@@ -13,9 +13,16 @@ public class FileOperations
 {
 	public static void main(String[] args) throws IOException
 	{
+		readContentsOfFile();
+		writeContentsToFile();
+		readAndWriteContentsToFile();
+	}
+	
+	public static void readContentsOfFile() throws IOException
+	{
 //		This file should be in the same folder as .classpath file, 
 //		which is the root of the project folder on the file system
-		File inputFile = new File("readme.txt");
+		File inputFile = new File("read.txt");
 		System.out.println(inputFile.getAbsolutePath());
 		
 		BufferedReader br = new BufferedReader(new FileReader(inputFile));
@@ -74,4 +81,48 @@ public class FileOperations
             System.out.println("Error encountered " + e.toString());
         }
 	}
+
+	public static void readAndWriteContentsToFile() throws IOException
+	{
+		File readFile = new File("read.txt");
+		File writeFile = new File("write.txt");
+		PrintWriter pw = new PrintWriter(writeFile);
+		
+		BufferedReader br = new BufferedReader(new FileReader(readFile));
+		ArrayList<String> fileContents = new ArrayList<String>();
+		StringBuilder sb = new StringBuilder();
+		String line = br.readLine();
+		
+		while(line != null)
+		{
+			sb.append(line);
+			sb.append(System.lineSeparator());
+			line = br.readLine();
+		}
+		
+//		We write the contents of the string builder to the file
+		pw.println("Output as a string builder");
+		pw.write(sb.toString());
+		
+//		Now, we store the contents in an array list and write the output to a file
+		pw.println("Output from the arraylist: ");
+		
+		br = new BufferedReader(new FileReader(readFile));
+		line = br.readLine();
+		
+		while(line != null)
+		{
+			fileContents.add(line);
+			fileContents.add(System.lineSeparator());
+			line = br.readLine();
+		}
+		
+		for(int i = 0; i < fileContents.size(); i++)
+		{
+			pw.write(fileContents.get(i).toString());
+		}
+		
+		pw.close();
+	}
+
 }
